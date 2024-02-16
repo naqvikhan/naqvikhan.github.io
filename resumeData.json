@@ -1,0 +1,129 @@
+{
+  "main": {
+    "title": "Hello World, I'm Naqvi!",
+    "name": "Naqvi",
+    "description": "'Stay Hungry, Stay Foolish' - Steve Jobs",
+    "image": "profilepic.jpg",
+    "bio": "I'm a versatile software engineer with a bachelor's degree in computer science. I have experience working in a legal tech startup undergoing post-acquisition growth and have contributed to impactful projects, including developing a fraud detection microservice for Capital One.",
+    "bio2": "My expertise spans a wide range of programming languages such as Java, Python, C++, HTML, CSS, and JavaScript. I also have mobile development experience using Swift and Objective-C.",
+    "bio3": "With a strong foundation in APIs, Git, Agile methodologies, and various frameworks, I have successfully delivered robust and scalable applications.",
+    "bio4": "I have a keen interest in AI/ML and always strive to stay up-to-date with the latest advancements in these fields. I am a dedicated learner, constantly seeking new opportunities to expand my knowledge.",
+    "github": "https://github.com/naqvikhan",
+    "resumebtn": "src/Documents/resume.pdf",
+    "project": "https://www.linkedin.com/in/naqvik/",
+    "social": [
+     
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/naqvik/",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "email",
+        "url": "mailto:naqvikhan98@gmail.com",
+        "className": "fa fa-envelope"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/naqvikhan",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
+    "education": [
+      {
+        "school": "University of Texas at Dallas",
+        "degree": "Bachelors of Science, Computer Science",
+        "graduated": "December 2021",
+        "relevant_coursework": "Data Structures, UNIX, Probability & Statistics, Computer Architecture, Discrete Math for Comp II, Database Systems, Software Testing, Advanced Algorithm Design & Analysis, Machine Learning",
+        "award_1": "2x Competitive Scholarship Recepient",
+        "award_2": "Student Spotlight: UTD Info Tech"
+      }
+    ],
+    "work": [
+      {
+        "company": "Algorizin Inc.",
+        "company_sub_heading": "",
+        "title": "Software Engineer",
+        "years": "April 2023 - Present",
+        "description": [
+          "I'm currently working on Algorizin’s Learning Management Platform, I drive performance improvements through backend migration to GoLang, implement user-centric features in React, and enhance data visibility with Grafana dashboards. My focus is on optimizing functionality and user experience."
+
+        ]
+      },
+      {
+        "company": "SimpleCitizen Inc.",
+        "company_sub_heading": "acquired by Fragomen, Del Rey, Bernsen & Loewy",
+        "title": "Workflow Engineer",
+        "years": "May 2022 - April 2023",
+        "description": [
+          "As a Workflow Engineer for SimpleCitizen’s Immigration Platform, I strategically optimized web applications and streamlined processing workflows, significantly reducing case processing times. ",
+          "Leveraging my expertise in Python, HTML, CSS, and JavaScript, along with the implementation of reusable scripts and Django integration, I delivered substantial efficiency gains. My approach reflects a commitment to impactful results and the advancement of immigration processing systems."
+        ]
+      },
+      {
+        "company": "University of Texas at Dallas",
+        "company_sub_heading": "sponsored by Capital One",
+        "title": "Software Developer",
+        "years": "August 2021 - December 2021",
+        "description": [
+          "For my capstone project, I partnered with a team of six to design and implement a fraud detection microservice for Capital One's Auto Financing Program. Using Java, Spring Boot, and open-source tools like Maven, JUnit, and Git, our collaborative effort resulted in a scalable solution that significantly reduced fraud detection time.",
+          "I took a lead role in developing an OCR using Tesseract for precise processing of financial documents. Additionally, I orchestrated the deployment of rules through CI/CD pipelines with Drools, enhancing anomaly detection capabilities. This work contributed significantly to the project's success."
+        ]
+      },
+      {
+        "company": "Big Data Analytics Lab",
+        "company_sub_heading": "at University of Texas at Dallas",
+        "title": "Research Intern",
+        "years": "January 2020 - May 2021",
+        "description": [
+          "As a Research Intern, I worked on two key projects. ",
+          "A Covid-19 tracking and visualization project where I played a key role in the design of an intuitive iOS App using Swift. In collaboration with a PhD candidate we utilized JSON datasets from authoritative sources, allowing users to track Covid-19 cases by region via the Google Maps API.",
+          "For the other project I implemented data querying optimization utilizing Memcached in Java to efficiently cache frequently accessed data from MongoDB. It led to a significant reduction in querying time and a notable increase in throughput for the data-heavy application."
+        ]
+      },
+      {
+        "company": "Office of Information Technology",
+        "company_sub_heading": "at University of Texas at Dallas",
+        "title": "ITSM Student Supervisor",
+        "years": "May 2019 - December 2021",
+        "description": [
+          "In my role as a Student Supervisor for the OIT Help Desk, I led a team of over 30 members, improving efficiency through mentorship and training. My responsibilities included managing troubleshooting across various platforms to ensure seamless user experiences and handling user accounts efficiently. Consistently maintaining high customer satisfaction, I supervised weekly tickets with positive feedback."
+        ]
+      }
+    ],
+    "skills": [
+    
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Workflow Automation",
+        "description": "Python, Selenium",
+        "image": "workflow.gif",
+        "url": "https://github.com/naqvikhan/WorkflowAutomation"
+      },
+      {
+        "title": "ML Decision Tree",
+        "description": "Python, SciKit Learn, Pandas",
+        "image": "ml.gif",
+        "url": "https://github.com/naqvikhan"
+      },
+      {
+        "title": "Pomodoro App",
+        "description": "React and JavaScript",
+        "image": "pomodoro.gif",
+        "url": "https://github.com/naqvikhan/pomodoro-app"
+      },
+      {
+        "title": " and more on my GitHub...",
+        "description": "and more on my GitHub",
+        "image": "etc.gif",
+        "url": "https://github.com/naqvikhan"
+      }
+    ]
+  }
+}
