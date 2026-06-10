@@ -73,6 +73,11 @@
     }
   }
   if (q("[data-status]") && D.about) q("[data-status]").textContent = esc(D.about.status);
+  var statusLink = q("[data-status-link]");
+  if (statusLink) {
+    var li = (D.socials || []).filter(function (s) { return (s.label || "").toLowerCase() === "linkedin"; })[0];
+    if (li) { statusLink.setAttribute("href", li.href); statusLink.setAttribute("target", "_blank"); statusLink.setAttribute("rel", "noopener"); }
+  }
   var stats = q("[data-stats]");
   if (stats && D.about) stats.innerHTML = (D.about.stats || []).map(function (s) {
     return '<div class="stat"><div class="n">' + esc(s.n) + '</div><div class="l">' + esc(s.l) + "</div></div>";

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio.css?v=45">
+<link rel="stylesheet" href="portfolio.css?v=51">
 </head>
 <body style="font-family: Avenir; background-color: rgb(255, 255, 255)">
 
@@ -52,10 +52,10 @@
     <div class="about-grid about-card slide" data-side="left">
       <div class="about-photo reveal">
         <div class="ph" data-label="headshot"></div>
-        <div class="badge">
+        <a class="badge" data-status-link aria-label="Open to connect — visit my LinkedIn">
           <div class="k">Status</div>
-          <div class="v"><span class="pulse"></span><span data-status>Open to work</span></div>
-        </div>
+          <div class="v"><span class="pulse"></span><span data-status>Open to work</span><span class="badge-arw">↗</span></div>
+        </a>
       </div>
       <div class="about-text">
         <span class="eyebrow reveal">About</span>
@@ -110,8 +110,8 @@
   <div class="inner">
     <span class="eyebrow center reveal">Get in touch</span>
     <h2 class="display contact-title reveal" data-d="1">Let's <span class="build-word" data-build>build</span><br><span class="accent">something.</span></h2>
-    <p class="contact-sub reveal" data-d="2">Have a role, a project, or just a good idea? My inbox is always open.</p>
-    <div class="contact-cta reveal" data-d="3" data-contact-cta></div>
+    <div class="contact-cta reveal" data-d="2" data-contact-cta></div>
+    <p class="contact-sub reveal" data-d="3" data-screen-label="duck-tally">Have you found all 8 rubber ducks?</p>
   </div>
 </section>
 
@@ -126,9 +126,9 @@
 
 <div id="tweaks-root"></div>
 
-<script src="portfolio-data.js?v=15"></script>
-<script src="portfolio-render.js?v=16"></script>
-<script src="portfolio.js?v=27"></script>
+<script src="portfolio-data.js?v=17"></script>
+<script src="portfolio-render.js?v=17"></script>
+<script src="portfolio.js?v=28"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>

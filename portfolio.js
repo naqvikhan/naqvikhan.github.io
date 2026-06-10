@@ -96,14 +96,21 @@
         Array.prototype.slice.call(node.childNodes).forEach(function (n) {
           if (n.nodeType === 3) {
             var frag = document.createDocumentFragment();
-            n.textContent.split("").forEach(function (ch) {
-              if (ch === " ") { frag.appendChild(document.createTextNode(" ")); return; }
-              var s = document.createElement("span");
-              s.className = "char";
-              s.textContent = ch;
-              s.style.transitionDelay = (i * 0.026 + 0.1) + "s";
-              i++;
-              frag.appendChild(s);
+            // split into words (and whitespace runs) so characters never break mid-word
+            n.textContent.split(/(\s+)/).forEach(function (tok) {
+              if (tok === "") return;
+              if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(" ")); return; }
+              var word = document.createElement("span");
+              word.className = "word";
+              tok.split("").forEach(function (ch) {
+                var s = document.createElement("span");
+                s.className = "char";
+                s.textContent = ch;
+                s.style.transitionDelay = (i * 0.026 + 0.1) + "s";
+                i++;
+                word.appendChild(s);
+              });
+              frag.appendChild(word);
             });
             node.replaceChild(frag, n);
           } else if (n.nodeType === 1 && n.tagName !== "BR") {

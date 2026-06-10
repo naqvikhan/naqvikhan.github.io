@@ -12,7 +12,7 @@ window.PORTFOLIO = {
   brand: "naqvi.xyz",                 // shown in the nav
   role: "Software Engineer · Aspiring Researcher",
   // The hero headline. Wrap the part you want emphasised in {{ }}.
-  headline: "Hello world, I'm {{Naqvi}}.",
+  headline: "Hello world,<br>I'm {{Naqvi}}.",
   quote: "“Stay hungry, stay foolish.” — building thoughtful software at the intersection of systems & design.",
   // Hero quote pool. One is chosen at random on every page load (a different
   // one than last time when possible). Add more strings to this array anytime.
