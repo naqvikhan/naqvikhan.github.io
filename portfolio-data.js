@@ -8,7 +8,7 @@
 window.PORTFOLIO = {
 
   /* — identity — */
-  name: "Naqvi",
+  name: "Naqvi Khan",
   brand: "naqvi khan",                 // shown in the nav
   role: "Software Engineer · Aspiring Researcher",
   // The hero headline. Wrap the part you want emphasised in {{ }}.
