@@ -104,24 +104,31 @@ window.PORTFOLIO = {
       desc: "Sponsored by Capital One, engineered a microservice with a team of six that reduced anomaly detection time in financial documents from 15 minutes to under 12 seconds.",
       stack: ["Java", "Spring Boot", "Tesseract", "Drools", "Maven", "JUnit", "Git"],
       href: "https://github.com/naqvikhan/fraud_detection_microservice",
-      poster: "images/fraudmicroservice.png",
-      label: "project poster"
+      posterDesign: { kind: "wordmark", word: "detectly", brandMark: true }
     },
     {
       name: "Workflow Automation",
       desc: "A Python automation script using Selenium for the school's IT office — enabling lightning-fast logins to work accounts, tools, web apps, and VPN, reducing a 5-minute task to under 15 seconds.",
       stack: ["Python", "Selenium"],
       href: "https://github.com/naqvikhan/WorkflowAutomation",
-      poster: "images/workflow.png",
-      label: "project poster"
+      posterDesign: {
+        kind: "terminal",
+        title: "automate.py",
+        lines: [
+          { t: "cmd", s: "python automate.py --all" },
+          { t: "info", s: "launching headless chrome\u2026" },
+          { t: "ok", s: "signed in \u00b7 workspace" },
+          { t: "ok", s: "signed in \u00b7 vpn + 6 tools" },
+          { t: "done", s: "done in 14.8s" }
+        ]
+      }
     },
     {
       name: "Pomodoro",
       desc: "A feature-rich web app built with React, JavaScript, and jQuery to enhance user productivity through the Pomodoro technique.",
       stack: ["React", "JavaScript", "jQuery"],
       href: "https://github.com/naqvikhan/pomodoro-app",
-      poster: "images/pomodoro.png",
-      label: "project poster"
+      posterDesign: { kind: "app", title: "Pomodoro", time: "38:24" }
     },
     {
       name: "Duck Locator",
@@ -131,6 +138,7 @@ window.PORTFOLIO = {
       linkText: "View duck",
       arrow: "↑",
       emoji: "🔍🦆",
+      posterDesign: { kind: "radar" },
       label: "duck poster"
     }
   ]

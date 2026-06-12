@@ -475,6 +475,129 @@ body{overflow-x:clip}
 .project-body .link-line{align-self:flex-start}
 
 /* ============================================================
+   PROJECT POSTERS — CSS recreations inspired by each project's
+   own original key art (no image files; palette-aware)
+   ============================================================ */
+.project-media .poster{height:100%}
+.poster{position:relative;width:100%;min-height:320px;height:100%;overflow:hidden;
+  display:flex;flex-direction:column;font-family:var(--font-body)}
+
+/* — WORDMARK · "detectly." (Fraud Detection) — */
+.poster-wordmark{align-items:center;justify-content:center;container-type:inline-size;
+  background:radial-gradient(125% 120% at 32% 22%,#ddefff,#c4e3f7 58%,#aed7f2)}
+.poster-wordmark .wm{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:500;
+  font-size:clamp(40px,17cqw,80px);line-height:1;color:#1c83d0;transform:scaleX(.8);
+  letter-spacing:-.015em;white-space:nowrap}
+[data-palette="dusk"] .poster-wordmark{background:radial-gradient(125% 120% at 32% 22%,#173c58,#102a3e 62%,#0b1f2f)}
+[data-palette="dusk"] .poster-wordmark .wm{color:#5bb7f3}
+/* parody sponsor mark, top-right */
+.poster-wordmark .cap6{position:absolute;top:19px;right:22px;display:inline-flex;align-items:baseline;gap:5px;
+  font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:800;font-size:21px;color:#13294f;letter-spacing:-.015em}
+.poster-wordmark .cap6 .num{position:relative;display:inline-block}
+.poster-wordmark .cap6 .num::before{content:"";position:absolute;right:-9px;top:-10px;width:28px;height:15px;
+  border-top:3px solid #d23329;border-radius:50% 50% 0 0/100% 100% 0 0;transform:rotate(-13deg)}
+[data-palette="dusk"] .poster-wordmark .cap6{color:#dbe7f5}
+
+/* — SCRIPT · "Workflow Automation" (Workflow Automation) — */
+.poster-script{align-items:center;justify-content:center;container-type:inline-size;
+  background:radial-gradient(72% 64% at 50% 46%,#94a7f3 0%,#a98fe0 40%,#caa9d6 68%,#efe1d6 100%)}
+.poster-script .sc{position:relative;z-index:2;text-align:center;font-family:"Lobster",cursive;
+  color:#f4a62b;paint-order:stroke fill;-webkit-text-stroke:2px #2b2b3c;
+  text-shadow:0 4px 10px rgba(40,30,60,.22);transform:rotate(-7deg);line-height:.86}
+.poster-script .sc span{display:block;font-size:clamp(30px,11.5cqw,58px);font-weight:400}
+.poster-script .sc .l1{transform:translateX(-4%)}
+.poster-script .sc .l2{transform:translateX(5%)}
+.poster-script .orbit{position:absolute;z-index:1;width:64%;height:34%;
+  border:1.5px solid rgba(255,255,255,.65);border-radius:50%;transform:rotate(-16deg)}
+.poster-script .spark{position:absolute;z-index:1;background:#fff;
+  filter:drop-shadow(0 1px 2px rgba(40,30,60,.25));
+  clip-path:polygon(50% 0,59% 41%,100% 50%,59% 59%,50% 100%,41% 59%,0 50%,41% 41%)}
+.poster-script .spark.s1{width:26px;height:26px;left:12%;top:44%}
+.poster-script .spark.s2{width:18px;height:18px;left:22%;top:22%}
+.poster-script .spark.s3{width:30px;height:30px;right:19%;bottom:14%}
+.poster-script .spark.s4{width:15px;height:15px;right:13%;top:30%}
+
+/* — APP · split-screen Pomodoro timer (Pomodoro) — */
+.poster-app{--coral:#e8553a;--app-bg:#ece3d2;--track:color-mix(in srgb,var(--coral) 22%,transparent);
+  position:relative;background:var(--app-bg)}
+[data-palette="dusk"] .poster-app{--app-bg:#26352c}
+.poster-app .app-title{position:absolute;top:20px;left:22px;z-index:2;
+  font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:700;font-size:18px;color:var(--coral)}
+/* theme toggle: crescent moon in light mode, sun in dark mode */
+.poster-app .sun,.poster-app .moon{position:absolute;top:18px;right:20px;width:22px;height:22px;color:var(--coral)}
+.poster-app .sun{display:none}
+[data-palette="dusk"] .poster-app .moon{display:none}
+[data-palette="dusk"] .poster-app .sun{display:block}
+.poster-app .moon{background:var(--coral);border-radius:50%;
+  -webkit-mask:radial-gradient(circle at 72% 32%,transparent 48%,#000 49%);
+          mask:radial-gradient(circle at 72% 32%,transparent 48%,#000 49%)}
+.poster-app .sun::before{content:"";position:absolute;inset:6px;border-radius:50%;background:currentColor}
+.poster-app .sun::after{content:"";position:absolute;inset:-1px;border-radius:50%;
+  background:repeating-conic-gradient(currentColor 0 7deg,transparent 7deg 45deg);
+  -webkit-mask:radial-gradient(circle,transparent 54%,#000 55% 80%,transparent 81%);
+          mask:radial-gradient(circle,transparent 54%,#000 55% 80%,transparent 81%)}
+.poster-app .ring2{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);
+  width:152px;height:152px;border-radius:50%;padding:13px;box-sizing:border-box;
+  background:conic-gradient(var(--coral) 0 84%,var(--track) 84% 100%)}
+.poster-app .ring2 .ring2-in{width:100%;height:100%;border-radius:50%;background:var(--app-bg);
+  display:flex;align-items:center;justify-content:center}
+.poster-app .ring2 b{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:500;
+  font-size:34px;letter-spacing:.01em;color:var(--coral)}
+.poster-app .controls{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:24px;color:var(--coral)}
+.poster-app .play{width:0;height:0;border-left:18px solid currentColor;
+  border-top:11px solid transparent;border-bottom:11px solid transparent}
+.poster-app .cog{width:24px;height:24px}
+.poster-app .cog svg{width:100%;height:100%;display:block;fill:var(--coral)}
+
+/* — TERMINAL · Workflow Automation: an automation script running — */
+.poster-terminal{padding:26px;justify-content:center;background:linear-gradient(158deg,#1b2130,#10141c)}
+.poster-terminal .term{flex:1;display:flex;flex-direction:column;border-radius:13px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);background:#0c0f15;box-shadow:0 24px 50px -26px rgba(0,0,0,.7)}
+.poster-terminal .term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;
+  border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
+.poster-terminal .term-bar i{width:11px;height:11px;border-radius:50%}
+.poster-terminal .term-bar i:nth-child(1){background:#ec6a5e}
+.poster-terminal .term-bar i:nth-child(2){background:#f4bf4f}
+.poster-terminal .term-bar i:nth-child(3){background:#61c554}
+.poster-terminal .term-bar span{margin-left:6px;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;color:rgba(220,228,240,.5)}
+.poster-terminal .term-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;
+  padding:20px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.2;color:#cdd6e3}
+.poster-terminal .tl{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  display:flex;align-items:center;gap:8px}
+.poster-terminal .tl .pfx{flex:none;font-weight:600}
+.poster-terminal .cmd .pfx{color:var(--c,#e0905c)}
+.poster-terminal .info,.poster-terminal .info .pfx{color:#8b97a8}
+.poster-terminal .ok,.poster-terminal .ok .pfx{color:#7fe0a0}
+.poster-terminal .done{color:#eef3fa;font-weight:500}
+.poster-terminal .tcur{display:inline-block;width:8px;height:15px;background:var(--c,#e0905c)}
+
+/* — RADAR · Duck Locator: sweeping for a duck — */
+.poster-radar{align-items:center;justify-content:center;position:relative;
+  background:radial-gradient(circle at 50% 46%,#10231a,#0a1611 76%)}
+.poster-radar .radar-top,.poster-radar .radar-foot{position:absolute;left:0;right:0;display:flex;
+  padding:0 26px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:rgba(120,230,170,.7)}
+.poster-radar .radar-top{top:20px;justify-content:space-between}
+.poster-radar .radar-foot{bottom:20px;justify-content:center;color:rgba(120,230,170,.9)}
+.poster-radar .live{color:#ff6b5e}
+.poster-radar .scope{position:relative;width:min(72%,210px);aspect-ratio:1;border-radius:50%;
+  border:1px solid rgba(120,230,170,.4);overflow:hidden;
+  background:radial-gradient(circle,rgba(95,224,160,.08),transparent 72%)}
+.poster-radar .ring{position:absolute;border:1px solid rgba(120,230,170,.16);border-radius:50%}
+.poster-radar .ring.r1{inset:17%}
+.poster-radar .ring.r2{inset:34%}
+.poster-radar .ch{position:absolute;background:rgba(120,230,170,.16)}
+.poster-radar .ch.h{left:0;right:0;top:50%;height:1px}
+.poster-radar .ch.v{top:0;bottom:0;left:50%;width:1px}
+.poster-radar .sweep{position:absolute;inset:0;border-radius:50%;transform:rotate(20deg);
+  background:conic-gradient(from 0deg,rgba(95,224,160,.5),rgba(95,224,160,.04) 52deg,transparent 72deg)}
+.poster-radar .blip{position:absolute;top:29%;left:60%;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+  filter:drop-shadow(0 0 7px rgba(95,224,160,.9))}
+
+/* ============================================================
    CONTACT
    ============================================================ */
 .contact{text-align:center;align-items:center;overflow:hidden}
@@ -529,11 +652,13 @@ body{overflow-x:clip}
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;z-index:9500;pointer-events:none;
   border-radius:50%;opacity:0;mix-blend-mode:normal}
 .cursor-dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--cur-color,var(--accent));
+  will-change:transform;
   transition:opacity .3s ease,background .4s ease,transform .25s cubic-bezier(.2,.7,.2,1)}
 .cursor-ring{width:36px;height:36px;margin:-18px 0 0 -18px;
   border:1.5px solid color-mix(in srgb,var(--cur-color,var(--accent)) 60%,transparent);
-  background:color-mix(in srgb,var(--cur-color,var(--accent)) 7%,transparent);
-  -webkit-backdrop-filter:blur(2px) saturate(130%);backdrop-filter:blur(2px) saturate(130%);
+  background:color-mix(in srgb,var(--cur-color,var(--accent)) 12%,transparent);
+  -webkit-backdrop-filter:blur(4px) saturate(150%);backdrop-filter:blur(4px) saturate(150%);
+  will-change:transform;
   box-shadow:inset 0 1px 0 var(--glass-sheen),0 0 18px 1px color-mix(in srgb,var(--cur-color,var(--accent)) 50%,transparent);
   transition:opacity .3s ease,width .3s cubic-bezier(.2,.7,.2,1),height .3s cubic-bezier(.2,.7,.2,1),
     margin .3s cubic-bezier(.2,.7,.2,1),border-color .4s ease,background .4s ease,box-shadow .4s ease}
@@ -546,3 +671,4 @@ body{overflow-x:clip}
 @media (prefers-reduced-motion:reduce){
   .cursor-ring{transition:opacity .2s ease,width .2s ease,height .2s ease,margin .2s ease,border-color .2s ease}
 }
+

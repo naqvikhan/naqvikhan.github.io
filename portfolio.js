@@ -140,7 +140,7 @@
       }
     }
 
-    /* ---- cursor-reactive page background (global) ---- */
+    /* ---- cursor-reactive page background (global, all sections) ---- */
     var siteBg = document.querySelector(".site-bg");
     var aurora = siteBg && siteBg.querySelector(".aurora");
     if (siteBg) {
@@ -438,7 +438,16 @@
       function place(el, x, y) { el.style.transform = "translate3d(" + x + "px," + y + "px,0)"; }
       place(dot, mx, my); place(ring, rx, ry);
 
+      function inPanel(e) { return e.target && e.target.closest && e.target.closest("#tweaks-root"); }
+
       window.addEventListener("pointermove", function (e) {
+        /* inside the Tweaks panel: hand back the native cursor, hide the custom one */
+        if (inPanel(e)) {
+          document.documentElement.classList.remove("has-cursor");
+          if (shown) { shown = false; dot.classList.remove("show"); ring.classList.remove("show"); }
+          return;
+        }
+        document.documentElement.classList.add("has-cursor");
         mx = e.clientX; my = e.clientY;
         place(dot, mx, my);
         if (reduce) place(ring, mx, my);

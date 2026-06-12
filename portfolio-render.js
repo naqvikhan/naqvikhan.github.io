@@ -123,6 +123,64 @@
     }).join("") + "</div>";
   }
 
+  /* ---- project posters (CSS recreations of each project's key art) ---- */
+  var GEAR_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 00.12-.64l-1.92-3.32a.5.5 0 00-.61-.22l-2.39.96a7.03 7.03 0 00-1.62-.94l-.36-2.54A.5.5 0 0013.9 2h-3.8a.5.5 0 00-.5.42l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.5.5 0 00-.61.22L2.7 8.48a.5.5 0 00.12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94L2.82 16.16a.5.5 0 00-.12.64l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.49.38 1.03.7 1.62.94l.36 2.54c.05.24.25.42.5.42h3.8c.25 0 .45-.18.5-.42l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.27.12.56.02.7-.22l1.92-3.32a.5.5 0 00-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1112 8.5a3.5 3.5 0 010 7z"/></svg>';
+  function posterHTML(p) {
+    var d = p.posterDesign || {};
+    if (d.kind === "wordmark") {
+      var mark = d.brandMark
+        ? '<div class="cap6" aria-hidden="true">Capital <span class="num">6</span></div>'
+        : "";
+      return '<div class="poster poster-wordmark">' + mark + '<span class="wm">' + esc(d.word || "") + '.</span></div>';
+    }
+    if (d.kind === "terminal") {
+      var lines = d.lines || [];
+      var rows = lines.map(function (ln, i) {
+        var pfx = ln.t === "cmd" ? "$" : ln.t === "info" ? "\u25b8" : ln.t === "ok" ? "\u2713" : "";
+        var last = i === lines.length - 1;
+        return '<p class="tl ' + esc(ln.t) + '">' +
+          (pfx ? '<span class="pfx">' + pfx + '</span>' : '') +
+          '<span>' + esc(ln.s) + '</span>' +
+          (last ? '<span class="tcur"></span>' : '') +
+        '</p>';
+      }).join("");
+      return '<div class="poster poster-terminal"><div class="term">' +
+          '<div class="term-bar"><i></i><i></i><i></i><span>' + esc(d.title || "") + '</span></div>' +
+          '<div class="term-body" aria-hidden="true">' + rows + '</div>' +
+        '</div></div>';
+    }
+    if (d.kind === "radar") {
+      return '<div class="poster poster-radar">' +
+        '<div class="radar-top"><span><span class="live">\u25cf</span> locating</span><span>scope \u00b7 360\u00b0</span></div>' +
+        '<div class="scope" aria-hidden="true">' +
+          '<div class="ring r1"></div><div class="ring r2"></div>' +
+          '<div class="ch h"></div><div class="ch v"></div>' +
+          '<div class="sweep"></div>' +
+          '<div class="blip">\ud83e\udd86</div>' +
+        '</div>' +
+        '<div class="radar-foot">duck \u00b7 1 found \u00b7 sweep \u2191</div>' +
+      '</div>';
+    }
+    if (d.kind === "script") {
+      return '<div class="poster poster-script">' +
+        '<div class="orbit" aria-hidden="true"></div>' +
+        '<i class="spark s1" aria-hidden="true"></i><i class="spark s2" aria-hidden="true"></i>' +
+        '<i class="spark s3" aria-hidden="true"></i><i class="spark s4" aria-hidden="true"></i>' +
+        '<div class="sc"><span class="l1">' + esc(d.line1 || "") + '</span><span class="l2">' + esc(d.line2 || "") + '</span></div>' +
+      '</div>';
+    }
+    if (d.kind === "app") {
+      return '<div class="poster poster-app">' +
+        '<span class="app-title">' + esc(d.title || "") + '.</span>' +
+        '<span class="sun" aria-hidden="true"></span>' +
+        '<span class="moon" aria-hidden="true"></span>' +
+        '<div class="ring2"><div class="ring2-in"><b>' + esc(d.time || "") + '</b></div></div>' +
+        '<div class="controls" aria-hidden="true"><span class="play"></span><span class="cog">' + GEAR_SVG + '</span></div>' +
+      '</div>';
+    }
+    return "";
+  }
+
   /* ---- projects ---- */
   var projMount = q("[data-projects]");
   if (projMount) projMount.innerHTML = (D.projects || []).map(function (p, i) {
@@ -131,12 +189,14 @@
     var side = i % 2 === 0 ? "left" : "right";
     var stack = (p.stack || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
     var num = "PROJECT " + ("0" + (i + 1)).slice(-2);
-    var media = p.poster
-      ? '<div class="ph has-img" data-label="' + esc(p.label || "project") + '"><img src="' + esc(p.poster) + '" alt="" loading="lazy"></div>'
-      : (p.emoji
-        ? '<div class="ph ph-emoji"><span class="ph-emoji-glyph">' + esc(p.emoji) + '</span></div>'
-        : '<div class="ph" data-label="' + esc(p.label || "project") + '"></div>');
-    var linkText = esc(p.linkText || "View case study");
+    var media = p.posterDesign
+      ? posterHTML(p)
+      : (p.poster
+        ? '<div class="ph has-img" data-label="' + esc(p.label || "project") + '"><img src="' + esc(p.poster) + '" alt="" loading="lazy"></div>'
+        : (p.emoji
+          ? '<div class="ph ph-emoji"><span class="ph-emoji-glyph">' + esc(p.emoji) + '</span></div>'
+          : '<div class="ph" data-label="' + esc(p.label || "project") + '"></div>'));
+    var linkText = esc(p.linkText || "View project");
     var arrow = esc(p.arrow || "↗");
     var external = p.href && p.href.charAt(0) !== "#";
     var link = p.href
